@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  linkText: string;
+  imageOne: string;
+  imageTwo: string;
+}
+const { linkText, imageOne, imageTwo } = Astro.props;
+---
+
+<section class="py-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-4 items-center">
+    <div>
+      <h1 class="text-4xl md:text-5xl font-extrabold italic yellowText pb-6">
+        Sobre vitraining
+      </h1>
+      <p class="text-white max-w-md text-lg">
+        Tu espacio para entrenar, mejorar y disfrutar del deporte. Entrena a tu
+        ritmo, con el mejor ambiente y asesoramiento personalizado. ¡Únete a
+        nuestra comunidad!
+      </p>
+    </div>
+    <div class="flex gap-4 justify-center">
+      <img
+        src={"/img/" + imageOne}
+        width="220"
+        height="160"
+        alt="Entrenamiento 1"
+        class="rounded-md object-cover shadow-lg"
+      />
+      <img
+        src={"/img/" + imageTwo}
+        width="220"
+        height="160"
+        alt="Entrenamiento 2"
+        class="rounded-md object-cover shadow-lg"
+      />
+    </div>
+  </div>
+</section>

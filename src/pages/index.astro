@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Offers from "../components/Offers.astro";
+import Testimonials from "../components/Testimonials.astro";
+import HeroFooter from "../components/HeroFooter.astro";
+---
+
+<Layout title="vitraining">
+	<main>
+		<Hero
+			callToAction="Entrena, mejora, disfruta"
+			buttonText="Comienza ahora"
+			companyName="vitraining"
+		/>
+		<About
+			linkText="#"
+			imageOne="IMG-20250619-WA0002.jpg"
+			imageTwo="IMG-20250619-WA0003.jpg"
+		/>
+		<Offers />
+		<Testimonials />
+		<HeroFooter callToAction="Contacta con nosotros" />
+	</main>
+</Layout>

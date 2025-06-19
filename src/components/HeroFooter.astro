@@ -1,0 +1,48 @@
+---
+interface Props {
+  callToAction: string;
+}
+
+const { callToAction } = Astro.props;
+const imageURL = "IMG-20250619-WA0007.jpg";
+const bgStyle = { backgroundImage: `url('/img/${imageURL}')` };
+const content = [
+  {
+    heading: "Dirección",
+    info: "Calle Ejemplo 123, Ciudad, País",
+  },
+  {
+    heading: "Email",
+    info: "info@vitraining.com",
+  },
+  {
+    heading: "Teléfono",
+    info: "+34 600 123 456",
+  },
+];
+---
+
+<footer
+  class="bg-cover bg-no-repeat bg-gray-900 bg-blend-multiply"
+  style={bgStyle}
+>
+  <div class="mx-auto max-w-screen-xl">
+    <h1
+      class="font-extrabold text-3xl md:text-5xl yellowText tracking-wide uppercase italic py-16 md:py-36 max-w-xl"
+    >
+      {callToAction}
+    </h1>
+    <div class="yellowBG grid grid-cols-1 md:grid-cols-3">
+      {
+        content.map((item) => (
+          <div class="p-8 md:p-12">
+            <h1 class="uppercase text-xl md:text-2xl italic mb-2">
+              {item.heading}
+            </h1>
+            <p class="text-black">{item.info}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</footer>

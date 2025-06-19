@@ -1,0 +1,50 @@
+---
+const testimonials = [
+  {
+    profileURL: "IMG-20250619-WA0002.jpg",
+    author: "María López",
+    age: 29,
+    quote:
+      "Entrenar en vitraining ha cambiado mi vida. El ambiente es increíble y los entrenadores siempre están para ayudarte. ¡Recomendado!",
+  },
+  {
+    profileURL: "IMG-20250619-WA0003.jpg",
+    author: "Carlos Pérez",
+    age: 35,
+    quote:
+      "Me encanta la variedad de clases y la flexibilidad de horarios. Aquí encontré mi motivación para seguir mejorando cada día.",
+  },
+  {
+    profileURL: "IMG-20250619-WA0004.jpg",
+    author: "Lucía Fernández",
+    age: 24,
+    quote:
+      "Un sitio perfecto para entrenar a tu ritmo y sentirte parte de una comunidad. ¡Gracias vitraining!",
+  },
+];
+---
+
+<section class="py-12">
+  <h1 class="yellowText text-4xl md:text-5xl italic uppercase text-center mb-8">
+    Testimonios
+  </h1>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {
+      testimonials.map((profile) => (
+        <div class="m-4 bg-white/5 rounded-lg shadow-lg overflow-hidden">
+          <img
+            src={"/img/" + profile.profileURL}
+            alt="Testimonio"
+            class="object-cover w-full h-48"
+          />
+          <div class="yellowBG p-6">
+            <p class="pb-4 font-bold text-black">{profile.quote}</p>
+            <small class="text-black">
+              {profile.author}, {profile.age} años
+            </small>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

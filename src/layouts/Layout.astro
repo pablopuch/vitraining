@@ -1,0 +1,85 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@300;400&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	body {
+		background: #181818;
+		margin: 0;
+		padding: 0;
+	}
+	section {
+		background-color: #141414;
+	}
+	h1,
+	h2,
+	li {
+		font-family: "Anton", "sans-serif";
+	}
+	p,
+	button,
+	a,
+	small {
+		font-family: "Hanken Grotesk", "sans-serif";
+	}
+	.yellowBG {
+		background-color: #f9ef23;
+	}
+	.yellowText {
+		color: #f9ef23;
+	}
+	button {
+		transition: all 0.2s;
+		cursor: pointer;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2.2rem !important;
+		}
+		section,
+		.yellowBG {
+			padding: 1.5rem 0.5rem !important;
+		}
+		.grid,
+		.grid-cols-2,
+		.grid-cols-3 {
+			display: block !important;
+		}
+		.py-32,
+		.py-36,
+		.py-12,
+		.py-16,
+		.py-8 {
+			padding-top: 2rem !important;
+			padding-bottom: 2rem !important;
+		}
+	}
+</style>
