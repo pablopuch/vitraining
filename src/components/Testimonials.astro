@@ -1,50 +1,102 @@
 ---
 const testimonials = [
   {
-    profileURL: "IMG-20250619-WA0002.jpg",
-    author: "María López",
-    age: 29,
+    author: "Alicia G.A.",
     quote:
-      "Entrenar en vitraining ha cambiado mi vida. El ambiente es increíble y los entrenadores siempre están para ayudarte. ¡Recomendado!",
+      "Este es mi cuarto mes entrenando en Vitraining y estoy muy contenta. Las clases son en grupos reducidos y consisten en una combinación de ejercicios de fuerza y resistencia. Además, los entrenadores siempre te ayudan a realizar correctamente los ejercicios o los adaptan según tu condición física. Me apunté simplemente por probar algo diferente los meses de verano, pero, desde el primer día, me sentí supermotivada y con ganas de continuar gracias al buen ambiente que hay en el centro. Otra cosa positiva del centro es la flexibilidad de horarios.",
   },
   {
-    profileURL: "IMG-20250619-WA0003.jpg",
-    author: "Carlos Pérez",
-    age: 35,
+    author: "Sara Hernández",
     quote:
-      "Me encanta la variedad de clases y la flexibilidad de horarios. Aquí encontré mi motivación para seguir mejorando cada día.",
+      "Totalmente recomendable. Te sientes como en casa desde el primer día. Te motivan a la vez que tienen en cuenta los límites individuales.",
   },
   {
-    profileURL: "IMG-20250619-WA0004.jpg",
-    author: "Lucía Fernández",
-    age: 24,
+    author: "Antonio Jesús Velázquez Lleó",
     quote:
-      "Un sitio perfecto para entrenar a tu ritmo y sentirte parte de una comunidad. ¡Gracias vitraining!",
+      "Fantástico, un centro de entrenamiento con una dinámica muy buena que favorece la adherencia al ejercicio físico.",
   },
 ];
 ---
 
-<section class="py-12">
-  <h1 class="yellowText text-4xl md:text-5xl italic uppercase text-center mb-8">
-    Testimonios
+<!-- Swiper CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+></script>
+
+<section class="py-12 bg-gray-50 text-gray-800">
+  <h1
+    class="text-[#ce2c3b] text-4xl md:text-5xl italic uppercase text-center mb-12"
+  >
+    Reseñas
   </h1>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {
-      testimonials.map((profile) => (
-        <div class="m-4 bg-white/5 rounded-lg shadow-lg overflow-hidden">
-          <img
-            src={"/img/" + profile.profileURL}
-            alt="Testimonio"
-            class="object-cover w-full h-48"
-          />
-          <div class="yellowBG p-6">
-            <p class="pb-4 font-bold text-black">{profile.quote}</p>
-            <small class="text-black">
-              {profile.author}, {profile.age} años
-            </small>
-          </div>
-        </div>
-      ))
-    }
+  <div class="w-full max-w-2xl mx-auto">
+    <div class="swiper progress-slide-carousel">
+      <div class="swiper-wrapper">
+        {
+          testimonials.map((testimonial) => (
+            <div class="swiper-slide flex flex-col items-center justify-center px-6 py-8 bg-white rounded-2xl shadow-md min-h-[260px]">
+              <p class="text-lg md:text-xl text-[#333333] font-semibold mb-4 leading-relaxed text-center">
+                "{testimonial.quote}"
+              </p>
+              <span class="block text-[#ce2c3b] font-bold text-lg mt-2">
+                - {testimonial.author}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination mt-6"></div>
+    </div>
   </div>
 </section>
+
+<script is:inline>
+  if (typeof window !== "undefined" && window.Swiper) {
+    new window.Swiper(".progress-slide-carousel", {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".progress-slide-carousel .swiper-pagination",
+        type: "progressbar",
+      },
+      slidesPerView: 1,
+      spaceBetween: 30,
+      grabCursor: true,
+    });
+  } else {
+    window.addEventListener("DOMContentLoaded", function () {
+      new window.Swiper(".progress-slide-carousel", {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".progress-slide-carousel .swiper-pagination",
+          type: "progressbar",
+        },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        grabCursor: true,
+      });
+    });
+  }
+</script>
+
+<style is:global>
+  .swiper-pagination-progressbar {
+    background: #e5e7eb;
+    height: 6px !important;
+    border-radius: 3px;
+  }
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: #ce2c3b !important;
+    border-radius: 3px;
+  }
+</style>
