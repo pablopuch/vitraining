@@ -3,51 +3,54 @@ interface Props {
   callToAction: string;
   buttonText: string;
   companyName: string;
-  //    logoImage:string;
 }
 const { callToAction, buttonText, companyName } = Astro.props;
 
-const imageURL = "IMG-20250619-WA0004.jpg";
+const imageURL = "entrenamiento espeficifico.jpg";
 const bgStyle = {
-  backgroundImage: `url('/img/${imageURL}')`,
+  backgroundImage: `url('/images/${imageURL}')`,
 };
 ---
 
 <header
-  class="bg-cover bg-no-repeat bg-gray-900 bg-blend-multiply"
+  class="bg-cover bg-no-repeat bg-gray-900 bg-blend-multiply min-h-[60vh]"
   style={bgStyle}
 >
   <nav
     class="text-white uppercase pt-8 p-4 font-bold flex items-center justify-center gap-2"
   >
-    <span class="inline-block align-middle">
-      <!-- SVG zapatilla simple -->
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 24C4 21 8 18 12 18H28V24H4Z"
-          fill="#f9ef23"
-          stroke="#222"
-          stroke-width="2"></path>
-        <rect x="20" y="14" width="6" height="4" rx="2" fill="#222"></rect>
-      </svg>
-    </span>
+    <img
+      src="/images/logo-sinfondo.png"
+      alt="Vitraining Logo"
+      class="h-12 w-auto mr-2 rounded-full bg-white/80 p-1"
+    />
     <span
       class="text-3xl font-extrabold tracking-widest italic"
       style="color:#f9ef23;letter-spacing:0.1em;">{companyName}</span
     >
   </nav>
-  <div class="px-4 mx-auto max-w-screen-xl text-center py-32 text-white">
+  <div
+    class="px-4 mx-auto max-w-screen-xl text-center py-16 md:py-32 text-white"
+  >
     <h1
-      class="font-extrabold text-5xl md:text-7xl tracking-wide mb-4 uppercase italic drop-shadow-lg"
+      class="font-extrabold text-4xl md:text-6xl tracking-wide mb-4 uppercase italic drop-shadow-lg"
     >
-      {callToAction}
+      ¿Qué está pasando en Vitraining?
     </h1>
+    <h2 class="text-2xl md:text-4xl font-bold mb-4">
+      Entrenamientos específicos
+    </h2>
+    <p class="mb-6 text-lg md:text-xl">
+      <strong>Fútbol y baloncesto</strong><br />
+      Santa Brígida: <b>lunes y miércoles 12:00h</b><br />
+      San Mateo: <b>martes y jueves 11:00h</b><br />
+      Campo/Sala: <b>viernes 12:00h</b> (según disponibilidad)<br />
+      <br />
+      Mejora: Velocidad, Fuerza, Agilidad, Resistencia, Técnica, Movilidad<br />
+      <b>A partir de 2013</b><br />
+      1 semana: 25€ | 2 semanas: 45€ | 4 semanas: 80€<br />
+      <small>04/02/2025</small>
+    </p>
     <button
       class="yellowBG p-3 px-8 rounded-full uppercase text-black font-bold text-lg shadow-lg hover:scale-105 transition-transform"
       >{buttonText}</button
