@@ -58,3 +58,21 @@ const bgStyle = {
     >
   </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctaButton = document.getElementById("cta-hero-button");
+    const trialForm = document.getElementById("trial-signup");
+
+    if (ctaButton && trialForm) {
+      ctaButton.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        trialForm.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    }
+  });
+</script>
