@@ -13,7 +13,7 @@ export default defineConfig({
   vite: {
     build: {
       cssMinify: true,
-      minify: 'terser',
+      minify: 'esbuild',
       rollupOptions: {
         output: {
           manualChunks: {
@@ -28,7 +28,4 @@ export default defineConfig({
     },
   },
   compressHTML: true,
-  experimental: {
-    optimizeHoistedScript: true,
-  },
 });
