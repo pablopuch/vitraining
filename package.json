@@ -1,13 +1,19 @@
 {
-  "name": "fitness-astro-landing",
+  "name": "vitraining-landing",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Sitio web optimizado para Vitraining - Centro de entrenamiento personal",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
+    "type-check": "tsc --noEmit",
+    "optimize-images": "node optimize-images.mjs",
+    "analyze": "npx @astrojs/check && npm run type-check"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -21,6 +27,23 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "sharp": "^0.34.2"
-  }
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.32.0",
+    "sharp": "^0.34.2",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "fitness",
+    "entrenamiento",
+    "astro",
+    "tailwind",
+    "react"
+  ],
+  "author": "Vitraining",
+  "license": "MIT"
 }

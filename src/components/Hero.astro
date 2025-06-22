@@ -18,9 +18,12 @@ const bgStyle = {
 <header
   class="bg-cover bg-no-repeat bg-center bg-gray-900 bg-blend-multiply min-h-[70vh] md:min-h-[80vh] flex flex-col"
   style={bgStyle}
+  role="banner"
 >
   <nav
     class="text-white uppercase pt-6 md:pt-8 px-4 font-bold flex items-center justify-center gap-4"
+    role="navigation"
+    aria-label="Navegación principal"
   >
     <div
       class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center"
@@ -32,6 +35,8 @@ const bgStyle = {
           src="/images/logo-sinfondo.png"
           alt="Vitraining Logo"
           class="h-40 md:h-48 w-auto"
+          loading="eager"
+          decoding="async"
         />
       </div>
       <span
@@ -44,18 +49,21 @@ const bgStyle = {
     class="px-4 mx-auto max-w-screen-xl text-center text-white flex-grow flex flex-col justify-center"
   >
     <h1
-      class="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-wide mb-4 uppercase italic drop-shadow-lg"
+      class="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-wide mb-4 uppercase italic drop-shadow-lg animate-slide-up"
     >
       Entrena, mejora, disfruta
     </h1>
-    <p class="mb-8 text-lg md:text-xl">
+    <p class="mb-8 text-lg md:text-xl animate-fade-in">
       Los mejores entrenamientos específicos para alcanzar tus metas.
     </p>
     <button
       id="cta-hero-button"
-      class="redBG p-3 px-8 rounded-full uppercase text-white font-bold text-base md:text-lg shadow-lg hover:scale-105 transition-transform self-center"
-      >{buttonText}</button
+      class="redBG p-3 px-8 rounded-full uppercase text-white font-bold text-base md:text-lg shadow-lg hover:scale-105 transition-all duration-300 self-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+      aria-describedby="cta-description">{buttonText}</button
     >
+    <p id="cta-description" class="sr-only">
+      Botón para ir al formulario de clase de prueba gratis
+    </p>
   </div>
 </header>
 
@@ -68,10 +76,26 @@ const bgStyle = {
       ctaButton.addEventListener("click", function (e) {
         e.preventDefault();
 
+        // Agregar feedback visual
+        ctaButton.classList.add("scale-95");
+        setTimeout(() => {
+          ctaButton.classList.remove("scale-95");
+        }, 150);
+
         trialForm.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
+
+        // Enfocar el primer campo del formulario después del scroll
+        setTimeout(() => {
+          const firstInput = trialForm.querySelector(
+            "input, select, textarea",
+          ) as HTMLElement;
+          if (firstInput) {
+            firstInput.focus();
+          }
+        }, 800);
       });
     }
   });

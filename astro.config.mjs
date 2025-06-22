@@ -6,5 +6,29 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), icon()]
+  integrations: [tailwind(), react(), icon()],
+  build: {
+    inlineStylesheets: 'auto',
+  },
+  vite: {
+    build: {
+      cssMinify: true,
+      minify: 'terser',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'swiper-vendor': ['swiper'],
+          },
+        },
+      },
+    },
+    ssr: {
+      noExternal: ['swiper'],
+    },
+  },
+  compressHTML: true,
+  experimental: {
+    optimizeHoistedScript: true,
+  },
 });
