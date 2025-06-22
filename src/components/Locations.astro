@@ -1,31 +1,49 @@
 ---
 const locations = [
     {
-        name: "Santa Brígida",
-        iframe: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d256.7578423734876!2d-15.499270566685619!3d28.034708442780058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc409786f16e9513%3A0x79243616a00a8a97!2sVitraining%20Santa%20Br%C3%ADgida!5e0!3m2!1ses!2ses!4v1750621816778!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        name: "Vitraining - Santa Brígida",
+        address: "C. Risco Caído, 1, 35300 Sta. Brígida, Las Palmas",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.826233379858!2d-15.50979452467551!3d28.03061517592454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc40956877b63919%3A0xf6334a1993444853!2sVitraining!5e0!3m2!1ses!2ses!4v1720023414840!5m2!1ses!2ses",
     },
     {
-        name: "San Mateo",
-        iframe: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1345.0871620947462!2d-15.529916035536152!3d28.01002673366709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc40914324bfac05%3A0xe4fc5806e46ca762!2sVitraining%20San%20Mateo!5e0!3m2!1ses!2ses!4v1750621829630!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        name: "Vitraining - San Mateo",
+        address: "C. del Pleito, 10, 35320 Vega de San Mateo, Las Palmas",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3522.618661642144!2d-15.53429882467645!3d28.00624827600812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4094f1b80d5d19%3A0xb69e8bb2247e9921!2sVitraining%20San%20Mateo!5e0!3m2!1ses!2ses!4v1720023533837!5m2!1ses!2ses",
     },
 ];
 ---
 
-<section id="locations" class="py-16 md:py-20 bg-gray-50">
+<section id="locations" class="py-16 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-            class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
-            Nuestras Ubicaciones
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                Nuestras <span class="text-[#ce2c3b]">Ubicaciones</span>
+            </h2>
+            <p class="mt-4 text-lg text-gray-500">
+                Encuéntranos en Santa Brígida o San Mateo. ¡Te esperamos!
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             {
                 locations.map((location) => (
-                    <div class="location-card">
-                        <h3 class="text-2xl font-bold text-center text-[#ce2c3b] mb-4">
+                    <div>
+                        <div class="aspect-w-16 aspect-h-9 mb-4">
+                            <iframe
+                                src={location.mapSrc}
+                                class="w-full h-full border-0 rounded-lg shadow-md"
+                                allowfullscreen={true}
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title={`Mapa de ubicación de ${location.name}`}
+                            />
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center">
                             {location.name}
                         </h3>
-                        <div class="map-container" set:html={location.iframe} />
+                        <p class="mt-2 text-gray-500 text-center">
+                            📍 {location.address}
+                        </p>
                     </div>
                 ))
             }
@@ -58,4 +76,3 @@ const locations = [
         height: 100%;
     }
 </style>
-

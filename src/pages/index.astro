@@ -1,30 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import AppDownload from "../components/AppDownload.astro";
-import About from "../components/About.astro";
 import Offers from "../components/Offers.astro";
-import TrialForm from "../components/TrialForm.astro";
+import About from "../components/About.astro";
 import Tarifas from "../components/Tarifas.astro";
+import AppDownload from "../components/AppDownload.astro";
+import TrialForm from "../components/TrialForm.astro";
 import Testimonials from "../components/Testimonials.astro";
-import HeroFooter from "../components/HeroFooter.astro";
 import Footer from "../components/Footer.astro";
 import Locations from "../components/Locations.astro";
+
+const pageTitle = "Vitraining | Entrenamiento Personal y Grupos Reducidos";
+const pageDescription =
+	"Centro de entrenamiento en Santa Brígida y San Mateo. Ofrecemos entrenamiento personal, funcional, pilates y yoga. ¡Pide tu clase de prueba gratis!";
 ---
 
-<Layout title="Vitraining | Tu centro de entrenamiento">
+<Layout title={pageTitle} description={pageDescription}>
 	<main>
 		<Hero
-			callToAction="Entrena, mejora, disfruta"
-			buttonText="Comienza ahora"
+			callToAction="Pide tu clase de prueba"
+			buttonText="¡COMIENZA AHORA!"
 			companyName="vitraining"
 		/>
+		<Offers />
+		<About />
+		<Tarifas />
 		<Testimonials />
+		<Locations />
 		<AppDownload />
 		<TrialForm />
-		<Locations />
-		<Footer
-			callToAction="Comienza tu transformación física con nosotros hoy mismo"
-		/>
+		<Footer callToAction="Contacta con nosotros" />
 	</main>
 </Layout>

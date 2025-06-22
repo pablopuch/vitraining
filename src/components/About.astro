@@ -2,26 +2,39 @@
 import { Image } from "astro:assets";
 
 interface Props {}
+
+const imageURL =
+  "mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco.png";
 ---
 
-<section class="py-20 md:py-28">
-  <div class="max-w-3xl mx-auto px-6 md:px-8">
-    <h1
-      class="text-[#ce2c3b] text-4xl md:text-5xl italic uppercase text-center mb-8"
-    >
-      Sobre nosotros
-    </h1>
-    <div
-      class="text-white text-lg md:text-xl space-y-6 text-center leading-relaxed"
-    >
-      <p>
-        En Vitraining, creemos que el entrenamiento debe ser una experiencia
-        personalizada y motivadora.
+<section id="about" class="bg-white">
+  <div
+    class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+  >
+    <div class="font-light text-gray-500 sm:text-lg">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
+        Sobre <span class="redText">Nosotros</span>
+      </h2>
+      <p class="mb-4">
+        En Vitraining, creemos en un enfoque integral del bienestar. Somos más
+        que un gimnasio; somos una comunidad dedicada a ayudarte a alcanzar tus
+        metas de salud y fitness. Con entrenadores expertos y un ambiente
+        motivador, te ofrecemos las herramientas y el apoyo que necesitas para
+        transformar tu cuerpo y tu mente.
       </p>
       <p>
-        Por eso, hemos creado un espacio donde cada persona, sin importar su
-        nivel, se sienta cómoda y apoyada para alcanzar sus metas.
+        Nuestra misión es proporcionar entrenamientos de alta calidad,
+        personalizados y en grupos reducidos, para garantizar que cada miembro
+        reciba la atención que merece. ¡Únete a nosotros y descubre tu máximo
+        potencial!
       </p>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-8">
+      <img
+        class="w-full rounded-lg"
+        src={`/images/${imageURL}`}
+        alt="Mujer estirando en entrenamiento Vitraining"
+      />
     </div>
   </div>
 </section>
