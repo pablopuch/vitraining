@@ -1,0 +1,96 @@
+---
+const services = [
+    "Iniciación Pilates y Yoga",
+    "Entrenamiento funcional",
+    "Entrenamiento personal",
+];
+---
+
+<section id="trial-signup" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Reserva tu Clase de Prueba Gratis
+        </h2>
+        <p class="text-gray-600 text-lg mb-8">
+            Descubre por qué el 30% de nuestros nuevos clientes empiezan por
+            aquí. ¡Da el primer paso!
+        </p>
+        <form
+            id="trial-form"
+            class="bg-white p-8 rounded-lg shadow-lg space-y-6"
+            name="trial-form"
+            method="POST"
+            data-netlify="true"
+        >
+            <input type="hidden" name="form-name" value="trial-form" />
+            <div>
+                <label for="name" class="sr-only">Tu nombre</label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Tu nombre"
+                    required
+                    class="form-input"
+                />
+            </div>
+            <div>
+                <label for="email" class="sr-only">Tu correo electrónico</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Tu correo electrónico"
+                    required
+                    class="form-input"
+                />
+            </div>
+            <div>
+                <label for="service" class="sr-only">Servicio de interés</label>
+                <select name="service" id="service" required class="form-input">
+                    <option value="" disabled selected
+                        >Elige un servicio...</option
+                    >
+                    {
+                        services.map((service) => (
+                            <option value={service}>{service}</option>
+                        ))
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="message" class="sr-only">Mensaje (opcional)</label>
+                <textarea
+                    name="message"
+                    id="message"
+                    rows="4"
+                    placeholder="Tu mensaje (opcional)"
+                    class="form-input"></textarea>
+            </div>
+            <button
+                type="submit"
+                class="w-full bg-[#ce2c3b] text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-[#a81f2a] transition-all duration-300 transform hover:scale-105"
+            >
+                ¡Quiero mi clase de prueba!
+            </button>
+        </form>
+    </div>
+</section>
+
+<style>
+    .form-input {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        transition:
+            border-color 0.3s,
+            box-shadow 0.3s;
+    }
+    .form-input:focus {
+        outline: none;
+        border-color: #ce2c3b;
+        box-shadow: 0 0 0 3px rgba(206, 44, 59, 0.2);
+    }
+</style>

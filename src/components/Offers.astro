@@ -1,29 +1,31 @@
 ---
 import ImageCard from "./ImageCard.astro";
+
 const offers = [
     {
-        imageURL: "dane-wetton-t1NEMSm1rgI-unsplash.webp",
+        imageURL:
+            "mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco.png",
         title: "Iniciación Pilates y Yoga",
         description:
             "Clases de iniciación para todos los niveles en Santa Brígida y San Mateo. Aprende las bases y mejora tu flexibilidad y fuerza.",
     },
     {
-        imageURL: "logan-weaver-lgnwvr-u76Gd0hP5w4-unsplash.webp",
+        imageURL: "logan-weaver-lgnwvr-u76Gd0hP5w4-unsplash.jpg",
         title: "Entrenamiento funcional",
         description:
             "Sesiones de entrenamiento funcional en grupos reducidos. Mejora tu rendimiento y previene lesiones con ejercicios que se adaptan a ti.",
     },
     {
-        imageURL: "scott-webb-U5kQvbQWoG0-unsplash.webp",
+        imageURL: "scott-webb-U5kQvbQWoG0-unsplash.jpg",
         title: "Entrenamiento personal",
         description:
-            "Planes 100% personalizados y adaptados a tus objetivos. Sesiones individuales, en pareja o a domicilio para sacar tu máximo potencial.",
+            "Nuestros entrenadores personales diseñan un programa a tu medida. Maximiza tus resultados con un seguimiento individualizado y alcanza tus metas de forma más eficiente.",
     },
 ];
 ---
 
-<section class="py-20 md:py-28 text-center bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="offers" class="py-20 md:py-28 text-center bg-gray-900">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="redText text-4xl md:text-5xl italic uppercase mb-4">
             Servicios y actividades
         </h1>
@@ -33,11 +35,13 @@ const offers = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
                 offers.map((offer) => (
-                    <ImageCard
-                        imageURL={offer.imageURL}
-                        title={offer.title}
-                        description={offer.description}
-                    />
+                    <div class="p-4">
+                        <ImageCard
+                            imageURL={offer.imageURL}
+                            title={offer.title}
+                            description={offer.description}
+                        />
+                    </div>
                 ))
             }
         </div>

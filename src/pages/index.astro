@@ -1,24 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import AppDownload from "../components/AppDownload.astro";
 import About from "../components/About.astro";
 import Offers from "../components/Offers.astro";
+import TrialForm from "../components/TrialForm.astro";
 import Tarifas from "../components/Tarifas.astro";
 import Testimonials from "../components/Testimonials.astro";
 import HeroFooter from "../components/HeroFooter.astro";
+import Footer from "../components/Footer.astro";
+import Locations from "../components/Locations.astro";
 ---
 
-<Layout title="vitraining">
+<Layout title="Vitraining | Tu centro de entrenamiento">
 	<main>
 		<Hero
 			callToAction="Entrena, mejora, disfruta"
 			buttonText="Comienza ahora"
 			companyName="vitraining"
 		/>
-		<About />
-		<Offers />
-		<Tarifas />
 		<Testimonials />
-		<HeroFooter callToAction="Contacta con nosotros" />
+		<AppDownload />
+		<TrialForm />
+		<Locations />
+		<Footer
+			callToAction="Comienza tu transformación física con nosotros hoy mismo"
+		/>
 	</main>
 </Layout>

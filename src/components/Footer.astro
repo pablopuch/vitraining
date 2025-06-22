@@ -1,0 +1,102 @@
+---
+import { siFacebook, siInstagram } from "simple-icons";
+
+interface Props {
+  callToAction: string;
+}
+
+const { callToAction } = Astro.props;
+const phoneNumber = "654635129";
+const emailAddress = "info@vitraining.com";
+
+const contactInfo = {
+  phone: {
+    display: "654 63 51 29",
+    link: `https://wa.me/34${phoneNumber}`,
+  },
+  email: {
+    display: emailAddress,
+    link: `mailto:${emailAddress}`,
+  },
+};
+---
+
+<footer class="bg-[#ce2c3b] py-16 md:py-24">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <h1
+      class="font-extrabold text-3xl md:text-5xl text-white tracking-wide uppercase italic mb-10 md:mb-12"
+    >
+      Contacta con nosotros
+    </h1>
+    <div
+      class="bg-white rounded-lg grid grid-cols-1 md:grid-cols-3 gap-8 p-8 items-center"
+    >
+      <!-- Teléfono -->
+      <div class="text-center">
+        <h2 class="uppercase text-xl font-bold italic mb-2 text-[#ce2c3b]">
+          Teléfono
+        </h2>
+        <a
+          href={contactInfo.phone.link}
+          target="_blank"
+          class="text-gray-700 text-lg hover:underline"
+          >{contactInfo.phone.display}</a
+        >
+      </div>
+      <!-- Email -->
+      <div class="text-center">
+        <h2 class="uppercase text-xl font-bold italic mb-2 text-[#ce2c3b]">
+          Email
+        </h2>
+        <a
+          href={contactInfo.email.link}
+          target="_blank"
+          class="text-gray-700 text-lg hover:underline"
+          >{contactInfo.email.display}</a
+        >
+      </div>
+      <!-- Redes Sociales -->
+      <div class="flex flex-col items-center gap-4">
+        <a
+          href="https://www.facebook.com/p/Vitraining-100063506922439/"
+          target="_blank"
+          class="social-link"
+        >
+          <Fragment set:html={siFacebook.svg} />
+          Facebook
+        </a>
+        <a
+          href="https://www.instagram.com/vitraining/?hl=es"
+          target="_blank"
+          class="social-link"
+        >
+          <Fragment set:html={siInstagram.svg} />
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style is:global>
+  .social-link {
+    background-color: #ce2c3b;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background-color 0.3s;
+    justify-content: center;
+  }
+  .social-link:hover {
+    background-color: #a81f2a;
+  }
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+</style>
