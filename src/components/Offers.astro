@@ -2,35 +2,44 @@
 import ImageCard from "./ImageCard.astro";
 const offers = [
     {
-        imageURL: "istockphoto-1957558204-1024x1024.jpg",
-        offerText:
-            "Nuevos servicios: Iniciación al entrenamiento, Pilates y Yoga (Santa Brígida y San Mateo)",
+        imageURL: "dane-wetton-t1NEMSm1rgI-unsplash.webp",
+        title: "Iniciación Pilates y Yoga",
+        description:
+            "Clases de iniciación para todos los niveles en Santa Brígida y San Mateo. Aprende las bases y mejora tu flexibilidad y fuerza.",
     },
     {
-        imageURL: "scott-webb-U5kQvbQWoG0-unsplash.jpg",
-        offerText:
-            "Pilates y Yoga: Reserva tu plaza en la app y abónala el día de la clase. Infórmate: 664.635.129 / 654.635.129",
+        imageURL: "logan-weaver-lgnwvr-u76Gd0hP5w4-unsplash.webp",
+        title: "Entrenamiento funcional",
+        description:
+            "Sesiones de entrenamiento funcional en grupos reducidos. Mejora tu rendimiento y previene lesiones con ejercicios que se adaptan a ti.",
     },
     {
-        imageURL: "logan-weaver-lgnwvr-u76Gd0hP5w4-unsplash.jpg",
-        offerText:
-            "Clases de suelo pélvico: Miércoles y jueves en Santa Brígida y San Mateo.",
+        imageURL: "scott-webb-U5kQvbQWoG0-unsplash.webp",
+        title: "Entrenamiento personal",
+        description:
+            "Planes 100% personalizados y adaptados a tus objetivos. Sesiones individuales, en pareja o a domicilio para sacar tu máximo potencial.",
     },
 ];
 ---
 
-<section class="py-12 text-center">
-    <h1 class="redText text-4xl md:text-5xl italic uppercase mb-2">
-        Servicios y actividades
-    </h1>
-    <p class="text-white mb-8">
-        Descubre todas las actividades y novedades de Vitraining
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {
-            offers.map((offer) => (
-                <ImageCard imageURL={offer.imageURL} text={offer.offerText} />
-            ))
-        }
+<section class="py-20 md:py-28 text-center bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="redText text-4xl md:text-5xl italic uppercase mb-4">
+            Servicios y actividades
+        </h1>
+        <p class="text-white mb-12 text-lg">
+            Descubre todas las actividades y novedades de Vitraining
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                offers.map((offer) => (
+                    <ImageCard
+                        imageURL={offer.imageURL}
+                        title={offer.title}
+                        description={offer.description}
+                    />
+                ))
+            }
+        </div>
     </div>
 </section>

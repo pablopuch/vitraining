@@ -19,6 +19,10 @@ const { title } = Astro.props;
 			href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@300;400&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -66,27 +70,5 @@ const { title } = Astro.props;
 	img {
 		max-width: 100%;
 		height: auto;
-	}
-	@media (max-width: 768px) {
-		h1 {
-			font-size: 2.2rem !important;
-		}
-		section,
-		.redBG {
-			padding: 1.5rem 0.5rem !important;
-		}
-		.grid,
-		.grid-cols-2,
-		.grid-cols-3 {
-			display: block !important;
-		}
-		.py-32,
-		.py-36,
-		.py-12,
-		.py-16,
-		.py-8 {
-			padding-top: 2rem !important;
-			padding-bottom: 2rem !important;
-		}
 	}
 </style>

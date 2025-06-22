@@ -1,22 +1,101 @@
 ---
 interface Props {
-  text: string;
   imageURL: string;
+  title: string;
+  description: string;
 }
-const { text = "", imageURL = "" } = Astro.props;
+
+const { imageURL, title, description } = Astro.props;
 const imageStyle = {
   backgroundImage: `url(/images/${imageURL})`,
 };
 ---
 
-<div
-  class="py-48 bg-cover m-4 bg-gray-700 bg-blend-multiply rounded-lg flex items-end justify-center relative min-h-[300px] shadow-lg"
-  style={imageStyle}
->
-  <div class="absolute inset-0 bg-black/40 rounded-lg"></div>
-  <h2
-    class="text-white uppercase text-2xl md:text-4xl italic z-10 p-4 relative drop-shadow-lg"
-  >
-    {text}
-  </h2>
+<div class="flip-card animate__animated animate__flipInY">
+  <div class="flip-card-inner">
+    <div class="flip-card-front" style={imageStyle}>
+      <div class="overlay"></div>
+      <h2 class="card-title">{title}</h2>
+    </div>
+    <div class="flip-card-back">
+      <p class="text-lg font-semibold">{description}</p>
+    </div>
+  </div>
 </div>
+
+<style>
+  .flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* FRONT FACE STYLING */
+  .flip-card-front {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .flip-card-front .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .flip-card-front .card-title {
+    position: relative; /* To appear above the overlay */
+    z-index: 1;
+    font-family: "Anton", "sans-serif";
+    font-size: 1.75rem; /* 28px */
+    text-transform: uppercase;
+    font-style: italic;
+    padding: 1rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .flip-card-front.variant-yoga {
+    background-position: top;
+  }
+
+  /* BACK FACE STYLING */
+  .flip-card-back {
+    background-color: #ce2c3b;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+</style>

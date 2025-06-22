@@ -7,42 +7,42 @@ interface Props {
 const { callToAction, buttonText, companyName } = Astro.props;
 
 const imageURL =
-  "mujer-joven-entrenando-con-cuerda-de-batalla-en-cross-fit-gym.jpg";
+  "mujer-joven-entrenando-con-cuerda-de-batalla-en-cross-fit-gym.webp";
 const bgStyle = {
   backgroundImage: `url('/images/${imageURL}')`,
 };
 ---
 
 <header
-  class="bg-cover bg-no-repeat bg-center bg-gray-900 bg-blend-multiply min-h-[70vh] md:min-h-[80vh]"
+  class="bg-cover bg-no-repeat bg-center bg-gray-900 bg-blend-multiply min-h-[70vh] md:min-h-[80vh] flex flex-col"
   style={bgStyle}
 >
   <nav
-    class="text-white uppercase pt-8 p-4 font-bold flex items-center justify-center gap-2"
+    class="text-white uppercase pt-6 md:pt-8 px-4 font-bold flex items-center justify-center gap-4"
   >
     <img
-      src="/images/logo-sinfondo.png"
+      src="/images/logo-sinfondo.webp"
       alt="Vitraining Logo"
-      class="h-12 w-auto mr-2 rounded-full bg-white/80 p-1"
+      class="h-28 md:h-32 w-auto"
     />
     <span
-      class="text-3xl font-extrabold tracking-widest italic redText"
+      class="text-4xl md:text-5xl font-extrabold tracking-widest italic redText"
       style="letter-spacing:0.1em;">{companyName}</span
     >
   </nav>
   <div
-    class="px-4 mx-auto max-w-screen-xl text-center py-16 md:py-32 text-white"
+    class="px-4 mx-auto max-w-screen-xl text-center text-white flex-grow flex flex-col justify-center"
   >
     <h1
-      class="font-extrabold text-4xl md:text-6xl tracking-wide mb-4 uppercase italic drop-shadow-lg"
+      class="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-wide mb-4 uppercase italic drop-shadow-lg"
     >
       Entrena, mejora, disfruta
     </h1>
-    <p class="mb-6 text-lg md:text-xl">
+    <p class="mb-8 text-lg md:text-xl">
       Los mejores entrenamientos específicos para alcanzar tus metas.
     </p>
     <button
-      class="redBG p-3 px-8 rounded-full uppercase text-white font-bold text-lg shadow-lg hover:scale-105 transition-transform"
+      class="redBG p-3 px-8 rounded-full uppercase text-white font-bold text-base md:text-lg shadow-lg hover:scale-105 transition-transform self-center"
       >{buttonText}</button
     >
   </div>

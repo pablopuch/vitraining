@@ -124,3 +124,6 @@ Colores corporativos
 Blanco #ffffff
 Rojo #ce2c3b
 Negro #333333
+
+
+https://pagedone.io/docs/carousel
