@@ -6,8 +6,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const imagesDir = path.join(__dirname, 'public/images');
+const imagesDir = path.join(__dirname, 'img');
 const outputDir = path.join(imagesDir, 'optimized'); // Output to a new 'optimized' subdirectory
+
+console.log('DEBUG: imagesDir path:', imagesDir);
 
 // Ensure output directory exists
 async function ensureDir(dir) {
@@ -25,7 +27,9 @@ async function optimizeImages() {
     await ensureDir(outputDir);
 
     const files = await fs.readdir(imagesDir);
+    console.log('DEBUG: Files found by readdir:', files);
     const imageFiles = files.filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file)); // Include webp for re-optimization if needed
+    console.log('DEBUG: Image files after filter:', imageFiles);
 
     console.log(`Found ${imageFiles.length} images to optimize...`);
 
