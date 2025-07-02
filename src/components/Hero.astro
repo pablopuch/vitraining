@@ -1,27 +1,31 @@
 ---
-import AppDownload from "./AppDownload.astro";
-
 interface Props {
-  callToAction: string;
   buttonText: string;
   companyName: string;
 }
-const { callToAction, buttonText, companyName } = Astro.props;
+const { buttonText, companyName } = Astro.props;
 
 const imageURL =
-  "mujer-joven-entrenando-con-cuerda-de-batalla-en-cross-fit-gym.jpg";
-const bgStyle = {
-  backgroundImage: `url('/images/${imageURL}')`,
-};
+  "mujer-joven-entrenando-con-cuerda-de-batalla-en-cross-fit-gym.webp";
 ---
 
 <header
-  class="bg-cover bg-no-repeat bg-center bg-gray-900 bg-blend-multiply min-h-[70vh] md:min-h-[80vh] flex flex-col"
-  style={bgStyle}
+  class="relative min-h-[70vh] md:min-h-[80vh] flex flex-col"
   role="banner"
 >
+  <!-- Imagen de fondo optimizada para LCP -->
+  <img
+    src="/images/${imageURL}"
+    alt="Mujer entrenando con cuerda de batalla"
+    class="absolute inset-0 h-full w-full object-cover"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gray-900 bg-blend-multiply"></div>
+
   <nav
-    class="text-white uppercase pt-6 md:pt-8 px-4 font-bold flex items-center justify-center gap-4"
+    class="relative z-10 text-white uppercase pt-6 md:pt-8 px-4 font-bold flex items-center justify-center gap-4"
     role="navigation"
     aria-label="Navegación principal"
   >
