@@ -2,8 +2,8 @@ import sharp from 'sharp';
 import fs from 'fs/promises';
 import path from 'path';
 
-const imagesDir = path.resolve('public/images');
-const outputDir = path.resolve('public/images'); // Overwrite in the same directory
+const imagesDir = path.resolve('public/img');
+const outputDir = path.resolve('public/img'); // Overwrite in the same directory
 
 async function optimizeImages() {
   try {
