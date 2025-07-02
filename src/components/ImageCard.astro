@@ -7,7 +7,7 @@ interface Props {
 
 const { imageURL, title, description } = Astro.props;
 const imageStyle = {
-  backgroundImage: `url(/img/${imageURL})`,
+  backgroundImage: `url(/img/${imageURL.replace(".webp", ".png").replace(".jpg", ".jpg")})`,
 };
 ---
 
