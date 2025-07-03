@@ -1,19 +1,26 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface Props {
-  imageURL: string;
+  image: ImageMetadata;
   title: string;
   description: string;
 }
 
-const { imageURL, title, description } = Astro.props;
-const imageStyle = {
-  backgroundImage: `url(/img/${imageURL.replace(".webp", ".png").replace(".jpg", ".jpg")})`,
-};
+const { image, title, description } = Astro.props;
 ---
 
 <div class="flip-card animate__animated animate__flipInY">
   <div class="flip-card-inner">
-    <div class="flip-card-front" style={imageStyle}>
+    <div class="flip-card-front">
+      <Image
+        src={image}
+        alt={title}
+        width={600}
+        height={400}
+        class="absolute inset-0 w-full h-full object-cover z-0"
+      />
       <div class="overlay"></div>
       <h2 class="card-title">{title}</h2>
     </div>
@@ -58,8 +65,7 @@ const imageStyle = {
 
   /* FRONT FACE STYLING */
   .flip-card-front {
-    background-size: cover;
-    background-position: center;
+    position: relative; /* Add position relative to contain the image */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,11 +76,12 @@ const imageStyle = {
     position: absolute;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Ensure overlay is above the image but below text */
   }
 
   .flip-card-front .card-title {
     position: relative; /* To appear above the overlay */
-    z-index: 1;
+    z-index: 2; /* Ensure title is above the overlay */
     font-family: "Anton", "sans-serif";
     font-size: 1.75rem; /* 28px */
     text-transform: uppercase;

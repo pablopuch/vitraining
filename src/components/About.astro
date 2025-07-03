@@ -1,8 +1,6 @@
 ---
-interface Props {}
-
-const imageURL =
-  "mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco.png";
+import { Image } from "astro:assets";
+import aboutImage from "../assets/images/mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco.png";
 ---
 
 <section id="about" class="bg-white">
@@ -28,10 +26,12 @@ const imageURL =
       </p>
     </div>
     <div class="grid grid-cols-1 gap-4 mt-8">
-      <img
+      <Image
         class="w-full rounded-lg"
-        src={`/img/${imageURL}`}
+        src={aboutImage}
         alt="Mujer estirando en entrenamiento Vitraining"
+        width={800}
+        height={533}
       />
     </div>
   </div>
