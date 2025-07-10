@@ -1,6 +1,6 @@
 ---
-// import { Image } from "astro:assets";
-// import logoHeader from "../assets/images/logo-640w.webp";
+import { Image } from "astro:assets";
+import logoHeader from "../assets/images/logo-640w.webp";
 
 const links = [
     { name: "Servicios", href: "#services" },
@@ -22,15 +22,12 @@ const companyName = "Vitraining";
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="/" class="flex items-center gap-3">
-                    <img
+                    <Image
                         class="h-12 w-auto"
-                        src="/img/optimized/logo-320w.webp"
-                        srcset="/img/optimized/logo-320w.webp 320w, /img/optimized/logo-640w.webp 640w, /img/optimized/logo-1280w.webp 1280w"
-                        sizes="(max-width: 640px) 48px, (max-width: 1024px) 96px, 160px"
+                        src={logoHeader}
                         alt="Logo de Vitraining"
-                        width="48"
-                        height="48"
-                        fetchpriority="high"
+                        width={640}
+                        height={640}
                     />
                     <span
                         class="text-2xl font-extrabold tracking-widest italic text-[#ce2c3b] hidden sm:block"
