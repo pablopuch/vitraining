@@ -1,6 +1,6 @@
 ---
-// import { Image } from "astro:assets";
-// import logoVitraining from "../assets/images/logo-sinfondo-640w.webp";
+import { Image } from "astro:assets";
+import logoVitraining from "../assets/images/logo-sinfondo-640w.webp";
 import heroBackground from "../assets/images/mujer-joven-entrenando-con-cuerda-de-batalla-en-cross-fit-gym-1280w.webp";
 interface Props {
   buttonText: string;
@@ -30,15 +30,14 @@ const bgStyle = {
       <div
         class="logo-container mx-auto mb-6 h-44 w-44 md:h-52 md:w-52 flex items-center justify-center"
       >
-        <img
-          src="/img/optimized/logo-sinfondo-320w.webp"
-          srcset="/img/optimized/logo-sinfondo-320w.webp 320w, /img/optimized/logo-sinfondo-640w.webp 640w, /img/optimized/logo-sinfondo-1280w.webp 1280w"
-          sizes="(max-width: 640px) 160px, (max-width: 1024px) 208px, 208px"
+        <Image
+          src={logoVitraining}
           alt="Vitraining Logo"
           class="h-40 md:h-48 w-auto"
-          width="160"
-          height="160"
-          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          width={640}
+          height={640}
         />
       </div>
       <span

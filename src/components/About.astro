@@ -1,6 +1,6 @@
 ---
-// import { Image } from "astro:assets";
-// import aboutImage from "../assets/images/mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco.png";
+import { Image } from "astro:assets";
+import aboutImage from "../assets/images/mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco.png";
 ---
 
 <section id="about" class="bg-white">
@@ -26,16 +26,12 @@
       </p>
     </div>
     <div class="grid grid-cols-1 gap-4 mt-8">
-      <img
+      <Image
         class="w-full rounded-lg"
-        src="/img/optimized/mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco-320w.webp"
-        srcset="/img/optimized/mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco-320w.webp 320w, /img/optimized/mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco-640w.webp 640w, /img/optimized/mujer-joven-realizando-un-tramo-de-corredores-aislado-en-blanco-1280w.webp 1280w"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        src={aboutImage}
         alt="Mujer estirando en entrenamiento Vitraining"
-        width="800"
-        height="533"
-        loading="lazy"
-        decoding="async"
+        width={800}
+        height={533}
       />
     </div>
   </div>
